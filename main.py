@@ -28,7 +28,7 @@ class MyClient(discord.Client):
                     await message.remove_reaction(payload.emoji, member)
                     print('[ERROR] Too many roles for user {0.display_name}'.format(member))
 
-            except KeyError as e:
+            except KeyError:
                 print('[ERROR] KeyError, no role found for ' + emoji)
             except Exception as e:
                 print(repr(e))
@@ -46,7 +46,7 @@ class MyClient(discord.Client):
             await member.remove_roles(role)
             print('[SUCCESS] Role {1.name} has been remove for user {0.display_name}'.format(member, role))
 
-        except KeyError as e:
+        except KeyError:
             print('[ERROR] KeyError, no role found for ' + emoji)
         except Exception as e:
             print(repr(e))
